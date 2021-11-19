@@ -29,7 +29,8 @@
     "fast-glob": "^3.2.5",
     "fs-extra": "^9.1.0",
     "js-yaml": "^4.1.0",
-    "lz-string": "^1.4.4"
+    "lz-string": "^1.4.4",
+    "prettier": "^2.4.1"
   },
   "eslintConfig": {
     "extends": "@antfu/eslint-config-ts",
@@ -37,7 +38,8 @@
       "import/first": "off",
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "off",
-      "@typescript-eslint/semi": "off"
+      "@typescript-eslint/semi": "off",
+      "no-use-before-define": "off"
     }
   }
 }
