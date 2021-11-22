@@ -1,1 +1,3 @@
-type Awaited = any
+type Awaited<X extends Promise<unknown>> = X extends Promise<infer U>
+  ? U
+  : never
