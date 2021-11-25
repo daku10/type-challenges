@@ -8,6 +8,8 @@
 //   get(): T
 // }
 
+// if you call option with duplicate key, type definition is broken
+// ex. option('foo', 10).option('foo', 'aaa') => { foo: number } & { foo: string }
 type Chainable<T = {}> = {
   option<K extends string, V>(
     key: K,
