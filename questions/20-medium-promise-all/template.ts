@@ -12,6 +12,13 @@ declare function PromiseAll<T extends readonly unknown[]>(
   ? Promise<Arr<ExtractPromise<S>, ExractAllPromise<R>>>
   : never
 
+// clever solution
+// declare function PromiseAll<T extends readonly unknown[]>(
+//   values: readonly [...T]
+// ): Promise<{
+//   [P in keyof T]: T[P] extends Promise<infer U> ? U : T[P]
+// }>
+
 const promiseAll1 = PromiseAll([1, 2, 3] as const)
 const promiseAll2 = PromiseAll([1, 2, Promise.resolve(3)] as const)
 const promiseAll3 = PromiseAll([1, 2, Promise.resolve(3)])
