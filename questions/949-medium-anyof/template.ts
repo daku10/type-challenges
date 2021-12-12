@@ -1,15 +1,9 @@
 type AnyOf<T extends readonly any[]> = T extends []
   ? false
   : T extends [infer First, ...infer Rest]
-  ? First extends 0
+  ? First extends 0 | false | [] | '' | null | undefined
     ? AnyOf<Rest>
-    : First extends false
-    ? AnyOf<Rest>
-    : First extends []
-    ? AnyOf<Rest>
-    : MyEqual<First, {}> extends true
-    ? AnyOf<Rest>
-    : First extends ''
+    : keyof First extends never
     ? AnyOf<Rest>
     : true
   : never
